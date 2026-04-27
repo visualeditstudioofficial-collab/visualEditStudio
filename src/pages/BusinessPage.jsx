@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { siteData } from '../data';
 import SEO from '../components/SEO';
 import ContactForm from '../components/ContactForm';
@@ -6,9 +7,23 @@ import ComparisonCard from '../components/ComparisonCard';
 import styles from './DivisionPage.module.css';
 import bizStyles from './BusinessPage.module.css';
 
+const ceoImages = [
+  'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212341/_DSC5278.jpg_kybfkd.jpg',
+  'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212340/_DSC5279.jpg_1_zrrdgy.jpg',
+  'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212337/_DSC5297.jpg_ett6t5.jpg'
+];
+
 const d = siteData.divisions.ves_business;
 
 export default function BusinessPage() {
+    const [activeCeoIndex, setActiveCeoIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveCeoIndex((prev) => (prev + 1) % ceoImages.length);
+        }, 4000);
+        return () => clearInterval(interval);
+    }, []);
   return (
     <div className={styles.page}>
       <SEO
@@ -52,12 +67,24 @@ export default function BusinessPage() {
             <div className={styles.heroImageWrapper}>
               <div className={styles.heroImageContainer}>
                 <div className={styles.imageGlow}></div>
-                <img
-                  src="/images/ceo.jpg"
-                  alt="VES CEO"
-                  className={styles.heroImage}
-                  loading="lazy"
-                />
+                <div className={styles.heroImageCarousel}>
+                  {ceoImages.map((image, index) => (
+                    <img
+                      key={image}
+                      src={image}
+                      alt="Founder and CEO portrait"
+                      className={`${styles.heroImage} ${styles.heroImageSlide} ${
+                        index === activeCeoIndex ? styles.heroImageActive : ''
+                      }`}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      width={400}
+                      height={400}
+                      onError={(e) => {
+                        e.currentTarget.src = '/images/ceo.jpg';
+                      }}
+                    />
+                  ))}
+                </div>
                 <div className={styles.imageRing}></div>
                 <div className={styles.imageBadge}>
                   <span className={styles.imageBadgeDot}></span>

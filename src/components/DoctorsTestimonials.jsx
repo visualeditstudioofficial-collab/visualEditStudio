@@ -4,7 +4,13 @@ import siteData from "../data/site-data.json";
 import styles from "./DoctorsTestimonials.module.css";
 import { ShimmerCard } from "./Shimmer";
 
-const TESTIMONIAL_IMAGES = siteData.gallery_images;
+const TESTIMONIAL_IMAGES = (siteData.gallery_images || []).filter(
+  (url) => typeof url === "string" && !url.includes("res.cloudinary.com/debvroycl/")
+);
+
+const SAFE_TESTIMONIAL_IMAGES = TESTIMONIAL_IMAGES.length
+  ? TESTIMONIAL_IMAGES
+  : (siteData.gallery_images || []);
 
 function ImageCard({ src, onClick }) {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -43,8 +49,8 @@ export default function DoctorsTestimonials({ title, label }) {
   const [selected, setSelected] = useState(null);
 
   // Split with odd/even distribution so both rows get a balanced mix.
-  const row1 = TESTIMONIAL_IMAGES.filter((_, i) => i % 2 === 0);
-  const row2 = TESTIMONIAL_IMAGES.filter((_, i) => i % 2 === 1);
+  const row1 = SAFE_TESTIMONIAL_IMAGES.filter((_, i) => i % 2 === 0);
+  const row2 = SAFE_TESTIMONIAL_IMAGES.filter((_, i) => i % 2 === 1);
 
   // Duplicate for seamless loop
   const duplicatedRow1 = [...row1, ...row1];

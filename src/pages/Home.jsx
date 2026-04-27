@@ -5,7 +5,7 @@ import VideoCarousel from '../components/VideoCarousel';
 import SEO from '../components/SEO';
 import styles from './Home.module.css';
 
-const allVideos = siteData.home_videos;
+const allVideos = siteData.client_videos;
 const ceoImages = ['https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212341/_DSC5278.jpg_kybfkd.jpg', 'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212340/_DSC5279.jpg_1_zrrdgy.jpg', 'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212337/_DSC5297.jpg_ett6t5.jpg'];
 
 export default function Home() {
