@@ -13,7 +13,7 @@ const ceoImages = [
   'https://res.cloudinary.com/dzr5dorsx/image/upload/q_auto/f_auto/v1775212337/_DSC5297.jpg_ett6t5.jpg'
 ];
 
-const d = siteData.divisions.ves_business;
+const d = siteData.divisions.ves_prime;
 
 export default function BusinessPage() {
     const [activeCeoIndex, setActiveCeoIndex] = useState(0);
@@ -27,7 +27,7 @@ export default function BusinessPage() {
   return (
     <div className={styles.page}>
       <SEO
-        title="VES Business - Scale Your Revenue"
+        title="VES Prime - Scale Your Revenue"
         description="Performance marketing and ad production for businesses. Turn your ad spend into a growth engine with data-driven strategy."
         path="/business"
       />
@@ -46,7 +46,7 @@ export default function BusinessPage() {
               <div className={styles.breadcrumb}>
                 <Link to="/" className={styles.breadLink}>Home</Link>
                 <span>/</span>
-                <span>VES Business</span>
+                <span>VES Prime</span>
               </div>
               <span className={styles.heroTag}>{d.hero_label}</span>
               <h1 className={styles.heroTitle}>{d.title.toUpperCase()}</h1>

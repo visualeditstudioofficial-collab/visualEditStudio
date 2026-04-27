@@ -33,7 +33,7 @@
         "href": "/branding"
       },
       {
-        "label": "VES Business",
+        "label": "VES Prime",
         "href": "/business"
       },
       {
@@ -232,8 +232,8 @@
         }
       ]
     },
-    "ves_business": {
-      "title": "VES Business",
+    "ves_prime": {
+      "title": "VES Prime",
       "subtitle": "Performance marketing for businesses ready to scale.",
       "hero_label": "For Agencies & Scale",
       "description": "Performance marketing and ad production for businesses ready to scale. We turn viewers into high-ticket clients through data-driven visual strategy.",
@@ -290,7 +290,7 @@
         },
         {
           "category": "Corporate",
-          "title": "VES Business Reel",
+          "title": "VES Prime Reel",
           "client_type": "VES Brand",
           "color": "#0088aa"
         },
@@ -592,7 +592,7 @@
     },
     {
       "src": "/videos/ves_buisness.mp4",
-      "label": "VES Business"
+      "label": "VES Prime"
     },
     {
       "src": "/videos/ves_intro.mp4",

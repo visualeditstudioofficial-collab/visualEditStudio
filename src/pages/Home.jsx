@@ -146,18 +146,18 @@ export default function Home() {
             <div className={styles.divCardBg} style={{ '--accent': '#0284c7' }}></div>
             <div className={styles.divCardInner}>
               <span className={styles.divCardTag}>For Businesses</span>
-              <h3 className={styles.divCardTitle}>VES BUSINESS</h3>
+              <h3 className={styles.divCardTitle}>VES PRIME</h3>
               <p className={styles.divCardDesc}>
-                {siteData.divisions.ves_business.description}
+                {siteData.divisions.ves_prime.description}
               </p>
               <ul className={styles.divServices}>
-                {siteData.divisions.ves_business.services.slice(0, 3).map(s => (
+                {siteData.divisions.ves_prime.services.slice(0, 3).map(s => (
                   <li key={s.title}>
                     <span className={styles.sIcon} dangerouslySetInnerHTML={{ __html: s.icon }} /> {s.title}
                   </li>
                 ))}
               </ul>
-              <span className={styles.divCta}>Explore VES Business -&gt;</span>
+              <span className={styles.divCta}>Explore VES Prime -&gt;</span>
             </div>
           </Link>
         </div>
