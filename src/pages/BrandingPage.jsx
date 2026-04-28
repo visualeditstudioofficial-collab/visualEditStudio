@@ -119,91 +119,96 @@ export default function BrandingPage() {
                 </div>
             </section>
 
-            {/* Services — New Professional Services Grid */}
+            {/* Services — VES Brand Offerings */}
             <section className={styles.services} id="services">
                 <div className={styles.sectionInner}>
 
-                    {/* Header */}
                     <div className={styles.servicesHeaderWrap}>
-                        <span className={styles.servicesSectionEyebrow}>What We Do</span>
+                        <span className={styles.servicesSectionEyebrow}>VES BRAND</span>
                         <h2 className={styles.servicesSectionTitle}>
-                            SERVICES DESIGNED<br />FOR <span>PROFESSIONALS</span>
+                            Build Your Personal Brand.<br />Grow Faster.
                         </h2>
                         <p className={styles.servicesSectionSub}>
-                            Especially Doctors — Building digital authority with strategic content and professional positioning.
+                            We help professionals build authority, attract clients, and grow their digital presence with strategic content, branding, and marketing. Trusted by 750+ professionals with 5+ years of branding experience.
                         </p>
                     </div>
 
-                    {/* Card grid */}
-                    <div className={styles.serviceCardsGrid}>
+                    <div className={styles.servicesList}>
                         {[
                             {
-                                title: "Premium Reels Editing",
-                                desc: "High-quality short-form video editing crafted to maximize engagement, retention, and audience reach.",
-                                icon: "🎬"
+                                title: 'Personal Branding',
+                                description: 'We create a complete personal branding roadmap to help you build authority, trust, and online visibility.',
+                                includes: [
+                                    'Strategy roadmap',
+                                    'Content planning',
+                                    'Scriptwriting',
+                                    'Reels editing',
+                                    'Reel covers',
+                                    'SEO captions & hashtags'
+                                ]
                             },
                             {
-                                title: "Personal Brand Content Blueprint",
-                                desc: "A strategic content framework designed to build a strong, authentic, and authoritative personal brand.",
-                                icon: "📋"
+                                title: 'Social Media Management',
+                                description: 'We manage your social media professionally so you can focus on your work.',
+                                includes: [
+                                    'Posting & scheduling',
+                                    'Page management',
+                                    'Captions & hashtags',
+                                    'Comments handling',
+                                    'Stories & creatives',
+                                    'Monthly growth tracking'
+                                ]
                             },
                             {
-                                title: "Professional Positioning Strategy",
-                                desc: "Strategic positioning that establishes credibility, authority, and trust within your professional niche.",
-                                icon: "🎯"
+                                title: 'Meta Ads Management',
+                                description: 'We run targeted ad campaigns to help you get more inquiries, leads, and visibility.',
+                                includes: [
+                                    'Campaign setup',
+                                    'Audience targeting',
+                                    'Lead generation',
+                                    'Retargeting',
+                                    'Weekly optimization',
+                                    'Monthly performance report'
+                                ]
                             },
                             {
-                                title: "Advanced SEO Optimization",
-                                desc: "Advanced search optimization techniques to enhance discoverability and improve online visibility.",
-                                icon: "🔍"
+                                title: 'Professional Website / Landing Page',
+                                description: 'We create professional websites and landing pages that help convert visitors into inquiries.',
+                                includes: [
+                                    'Personal brand website',
+                                    'Service showcase',
+                                    'Lead / appointment generation',
+                                    'Mobile-friendly design',
+                                    'SEO-friendly structure'
+                                ]
                             },
                             {
-                                title: "Monthly Positioning Optimization",
-                                desc: "Ongoing refinement of brand positioning to maintain relevance, authority, and consistent audience growth.",
-                                icon: "📈"
-                            },
-                            {
-                                title: "Detailed Analytics Report",
-                                desc: "Comprehensive performance reports providing insights into reach, engagement, and overall strategy effectiveness.",
-                                icon: "📊"
-                            },
-                            {
-                                title: "Dedicated Account Management",
-                                desc: "A dedicated account manager available from 9:00 AM to 5:00 PM to ensure seamless communication and support.",
-                                icon: "👤"
-                            },
-                            {
-                                title: "Mini Content Audit",
-                                desc: "A quick yet insightful review of your existing content to identify opportunities for better engagement and growth.",
-                                icon: "✓"
+                                title: 'UGC & Authority Videos',
+                                description: 'We create trust-building videos for professionals, clinics, and brands.',
+                                includes: [
+                                    'Product / service videos',
+                                    'Authority videos',
+                                    'Review videos',
+                                    'Professional scripting',
+                                    'Shoot + edit',
+                                    'Ad-ready delivery'
+                                ]
                             }
-                        ].map((s, i) => {
-                            const accents = ['#0ea5e9', '#38bdf8', '#0891b2', '#06b6d4', '#0ea5e9', '#38bdf8', '#0891b2', '#06b6d4'];
-                            return (
-                                <div
-                                    key={i}
-                                    className={styles.svcCard}
-                                    style={{ '--card-accent': accents[i] }}
-                                >
-                                    {/* Ghost number */}
-                                    <span className={styles.svcNum}>{String(i + 1).padStart(2, '0')}</span>
-
-                                    {/* Icon */}
-                                    <div className={styles.svcIconRing}>
-                                        <span className={styles.svcIconText}>{s.icon}</span>
-                                    </div>
-
-                                    {/* Text */}
-                                    <h3 className={styles.svcTitle}>{s.title}</h3>
-                                    <p className={styles.svcDesc}>{s.desc}</p>
-
-                                    {/* Hover glow */}
-                                    <div className={styles.svcGlow} />
+                        ].map((service, index) => (
+                            <div key={service.title} className={styles.serviceBlock}>
+                                <h3 className={styles.serviceBlockTitle}>{index + 1}. {service.title}</h3>
+                                <p className={styles.serviceBlockDescription}>{service.description}</p>
+                                <div className={styles.serviceBlockIncludes}>
+                                    <span>Includes:</span>
+                                    <ul>
+                                        {service.includes.map((item) => (
+                                            <li key={item}>{item}</li>
+                                        ))}
+                                    </ul>
                                 </div>
-                            );
-                        })}
+                            </div>
+                        ))}
                     </div>
-
                 </div>
             </section>
 
@@ -235,20 +240,28 @@ export default function BrandingPage() {
                 <div className={styles.sectionInner}>
                     <div className={styles.whyGrid}>
                         <div className={styles.whyLeft}>
-                            <span className={styles.sectionLabel}>/ WHY VES BRAND</span>
-                            <h2 className={styles.sectionTitle}>SO YOU CAN FOCUS<br />ON YOUR PATIENTS</h2>
-                            <p className={styles.whyDesc}>
-                                While you're saving lives, we're building your brand. Our team handles every aspect of your digital presence — from content strategy to video production — so your expertise reaches the people who need it most.
-                            </p>
-                            <Link to="/" className={styles.ctaSecondary}>View All Services -&gt;</Link>
+                            <span className={styles.sectionLabel}>/ WHY VES BRANDING</span>
+                            <h2 className={styles.sectionTitle}>Why Choose VES Branding?</h2>
+                            <div className={styles.whyList}>
+                                {[
+                                    '750+ professionals trusted',
+                                    '5+ years experience',
+                                    'Strategy-first approach',
+                                    'Personal branding experts',
+                                    'Content + marketing under one roof',
+                                    'Result-focused execution'
+                                ].map((item) => (
+                                    <p key={item} className={styles.whyListItem}>• {item}</p>
+                                ))}
+                            </div>
                         </div>
                         <div className={styles.whyRight}>
                             <div className={styles.whyStats}>
                                 {[
-                                    { num: '750+', label: 'Doctors Across India' },
-                                    { num: '5+', label: 'Years Exclusive Focus' },
-                                    { num: '100%', label: 'Ethics Compliant' },
-                                    { num: '24/7', label: 'Content Strategy' },
+                                    { num: '750+', label: 'Professionals Trusted' },
+                                    { num: '5+', label: 'Years Experience' },
+                                    { num: '1', label: 'Branding + Marketing Hub' },
+                                    { num: 'Result', label: 'Focused Execution' },
                                 ].map((s, i) => (
                                     <div key={i} className={styles.whyStat}>
                                         <span className={styles.whyNum}>{s.num}</span>
@@ -294,22 +307,22 @@ export default function BrandingPage() {
                 <div className={styles.sectionInner} style={{ position: 'relative', textAlign: 'center' }}>
                     <span className={styles.sectionLabel}>/ GET STARTED</span>
                     <h2 className={styles.sectionTitle} style={{ marginBottom: '1rem' }}>
-                        READY TO BUILD<br />YOUR AUTHORITY?
+                        READY TO BUILD<br />YOUR PERSONAL BRAND?
                     </h2>
-                    <p style={{ color: 'var(--gray)', marginBottom: '2.5rem', fontSize: '0.95rem' }}>
-                        Join 750+ doctors already growing with VES Brand.
+                    <p style={{ color: 'var(--gray)', marginBottom: '2.5rem', fontSize: '0.95rem', maxWidth: '680px', marginLeft: 'auto', marginRight: 'auto' }}>
+                        Book a free consultation with VES Branding today.
                     </p>
 
                     <div className={styles.formWrapper} style={{ maxWidth: '600px', margin: '0 auto' }}>
                         <ContactForm />
                     </div>
 
-                    <div style={{ display: 'flex', gap: '2rem', justifyContent: 'center', flexWrap: 'wrap', marginTop: '3rem', opacity: 0.7 }}>
-                        <a href={`tel:${siteData.company.contact.phone}`} style={{ color: 'var(--gray)', fontSize: '0.85rem' }}>
-                            Phone: {siteData.company.contact.phone}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'center', marginTop: '3rem', opacity: 0.9 }}>
+                        <a href="tel:+917044232016" style={{ color: 'var(--gray)', fontSize: '0.95rem', fontWeight: 600 }}>
+                            📞 Call / WhatsApp: +91 7044 23 2016
                         </a>
-                        <a href={`mailto:${siteData.company.contact.email}`} style={{ color: 'var(--gray)', fontSize: '0.85rem' }}>
-                            Email: {siteData.company.contact.email}
+                        <a href="mailto:visualeditstudios@gmail.com" style={{ color: 'var(--gray)', fontSize: '0.95rem', fontWeight: 600 }}>
+                            📩 Email: visualeditstudios@gmail.com
                         </a>
                     </div>
                 </div>

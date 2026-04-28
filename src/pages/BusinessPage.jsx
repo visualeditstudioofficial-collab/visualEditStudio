@@ -15,6 +15,64 @@ const ceoImages = [
 
 const d = siteData.divisions.ves_prime;
 
+const primeSections = [
+  {
+    title: 'Advertising (Ad Creatives & Video Production)',
+    desc: 'We create high-quality advertising videos designed to capture attention and drive results.',
+    bullets: [
+      'Product Ad Videos',
+      'UGC Ads (User Generated Content)',
+      'Testimonial Videos (Doctor / Customer / Model)',
+      'Restaurant & Café Videos',
+      'Brand Shoot & Promotional Videos',
+      'Character Ads (Story-based ads with actors)',
+      'Car Cinematic Ads & Automotive Shoots',
+      'Real Estate & Location-Based Videos',
+      'Podcast & Talking Ads',
+      'TVC Ads & Premium Brand Films',
+      'Reel Ads for Instagram & Facebook'
+    ],
+    footer: 'From simple ads to cinematic high-end production'
+  },
+  {
+    title: 'Marketing (Strategy & Ads Execution)',
+    desc: 'We plan and execute advertising that actually performs.',
+    bullets: [
+      'Meta Ads Setup & Management',
+      'Campaign Planning & Execution',
+      'Ad Creative Strategy',
+      'Business Growth Planning',
+      'Brand Positioning & Offer Strategy',
+      'Performance-Based Ad Direction'
+    ],
+    footer: 'Focused on scaling your business with the right strategy'
+  },
+  {
+    title: 'Social Media Management (SMM)',
+    desc: 'We build and manage your online presence with consistent content.',
+    bullets: [
+      'Content Planning & Strategy',
+      'Reels Creation & Posting',
+      'Posters / Creative Designs',
+      'Instagram & Facebook Management',
+      'Page Setup & Optimization',
+      'Content Direction for Growth'
+    ],
+    footer: 'Built for strong branding and audience engagement'
+  },
+  {
+    title: 'Full Business Growth (All-in-One)',
+    desc: 'For brands that want everything handled: content, ads, strategy, and execution.',
+    bullets: [
+      'Content + Ads + Strategy',
+      'Video Production + Marketing',
+      'Social Media + Campaign Execution',
+      'End-to-End Growth Management'
+    ],
+    footer: 'From local business to premium brand scale'
+  }
+];
+
 export default function BusinessPage() {
     const [activeCeoIndex, setActiveCeoIndex] = useState(0);
 
@@ -25,7 +83,7 @@ export default function BusinessPage() {
         return () => clearInterval(interval);
     }, []);
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${bizStyles.goldTheme}`}>
       <SEO
         title="VES Prime - Scale Your Revenue"
         description="Performance marketing and ad production for businesses. Turn your ad spend into a growth engine with data-driven strategy."
@@ -49,7 +107,9 @@ export default function BusinessPage() {
                 <span>VES Prime</span>
               </div>
               <span className={styles.heroTag}>{d.hero_label}</span>
-              <h1 className={styles.heroTitle}>{d.title.toUpperCase()}</h1>
+              <div className={styles.heroLogoWrapper}>
+                <img src="/VESPRIME_logo.png" alt="VES PRIME" className={styles.heroLogo} />
+              </div>
               <p className={styles.heroSub}>{d.subtitle}. {d.description}</p>
 
               <div className={styles.trustBar}>
@@ -133,19 +193,27 @@ export default function BusinessPage() {
       <section className={styles.services} id="services">
         <div className={styles.sectionInner}>
           <span className={styles.sectionLabel}>/ WHAT WE DO</span>
-          <h2 className={styles.sectionTitle}>PERFORMANCE MARKETING<br />THAT CONVERTS</h2>
-          <div className={styles.servicesGrid}>
-            {d.services.map((s, i) => (
-              <div key={i} className={styles.serviceCard} style={{ animationDelay: `${i * 0.1}s` }}>
-                <div
-                  className={styles.serviceIcon}
-                  dangerouslySetInnerHTML={{ __html: s.icon }}
-                />
-                <h3 className={styles.serviceTitle}>{s.title}</h3>
-                <p className={styles.serviceDesc}>{s.desc}</p>
+          <h2 className={styles.sectionTitle}>VES PRIME<br />SERVICES</h2>
+          <div className={bizStyles.primeGrid}>
+            {primeSections.map((section, i) => (
+              <div key={section.title} className={`${styles.serviceCard} ${bizStyles.primeCard}`} style={{ animationDelay: `${i * 0.1}s` }}>
+                <h3 className={styles.serviceTitle}>{section.title}</h3>
+                <p className={styles.serviceDesc}>{section.desc}</p>
+                <div className={bizStyles.primeList}>
+                  <p className={bizStyles.primeListTitle}>What we do:</p>
+                  <ul>
+                    {section.bullets.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <p className={bizStyles.primeFoot}>{section.footer}</p>
                 <div className={styles.serviceNum}>{String(i + 1).padStart(2, '0')}</div>
               </div>
             ))}
+          </div>
+          <div className={bizStyles.primeTagline}>
+            We Don’t Just Advertise. We Build & Scale Your Business.
           </div>
         </div>
       </section>
