@@ -1,122 +1,23 @@
 .hero {}
 
-.goldTheme :global(.heroBg) {
-  background-image:
-    radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 30%),
-    radial-gradient(circle at 15% 20%, rgba(245, 211, 72, 0.14), transparent 20%);
-}
+.goldTheme {
+  background: #fff7eb;
 
-.goldTheme :global(.heroGlow1) {
-  background: radial-gradient(ellipse, rgba(245, 158, 11, 0.18) 0%, transparent 65%);
-}
+  /* Local fallback theme tokens (global tokens also set on body via BusinessPage.jsx) */
+  --teal: #b45309;
+  --teal-bright: #f59e0b;
+  --teal-dim: #92400e;
+  --text-gradient: linear-gradient(135deg, #b45309 0%, #f59e0b 55%, #fbbf24 100%);
+  --brand-gradient: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
 
-.goldTheme :global(.heroGlow2) {
-  background: radial-gradient(ellipse, rgba(245, 211, 72, 0.14) 0%, transparent 65%);
-}
+  --glass-border: rgba(245, 158, 11, 0.16);
+  --glass-border-highlight: rgba(245, 158, 11, 0.28);
+  --glass-shadow: 0 8px 32px 0 rgba(195, 116, 0, 0.12);
 
-.goldTheme :global(.ambientOrb1),
-.goldTheme :global(.ambientOrb2) {
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(245, 158, 11, 0.5), rgba(32, 24, 9, 0.9));
-  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.12), 0 0 50px rgba(245, 158, 11, 0.25);
-}
-
-.goldTheme :global(.heroTag) {
-  color: #b45309;
-  background: rgba(245, 158, 11, 0.12);
-  border-color: rgba(245, 158, 11, 0.18);
-}
-
-.goldTheme :global(.heroSub) {
-  color: #92400e;
-}
-
-.goldTheme :global(.trustBar) {
-  background: rgba(245, 211, 72, 0.12);
-  border-color: rgba(245, 158, 11, 0.18);
-}
-
-.goldTheme :global(.trustNum) {
-  background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.goldTheme :global(.ctaPrimary) {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
-  color: #000;
-  box-shadow: 0 12px 30px rgba(195, 116, 0, 0.28);
-}
-
-.goldTheme :global(.ctaPrimary:hover) {
-  box-shadow: 0 18px 40px rgba(195, 116, 0, 0.35);
-}
-
-.goldTheme :global(.ctaSecondary) {
-  color: #92400e;
-  border-color: rgba(245, 158, 11, 0.22);
-  background: rgba(245, 158, 11, 0.08);
-}
-
-.goldTheme :global(.ctaSecondary:hover) {
-  background: rgba(245, 158, 11, 0.16);
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.12);
-}
-
-.goldTheme :global(.sectionLabel) {
-  color: #b45309;
-}
-
-.goldTheme :global(.sectionTitle) {
-  color: #92400e;
-}
-
-.goldTheme :global(.serviceCard) {
-  border-color: rgba(245, 158, 11, 0.12);
-  background: rgba(255, 250, 235, 0.88);
-}
-
-.goldTheme :global(.serviceCard:hover) {
-  border-color: rgba(245, 158, 11, 0.35);
-  box-shadow: 0 25px 60px rgba(165, 115, 15, 0.18), inset 0 0 18px rgba(245, 158, 11, 0.06);
-}
-
-.goldTheme :global(.serviceNum) {
-  color: rgba(245, 158, 11, 0.11);
-}
-
-.goldTheme :global(.primeListTitle) {
-  color: #b45309;
-}
-
-.goldTheme :global(.primeList li::before) {
-  color: #f59e0b;
-}
-
-.goldTheme :global(.primeFoot) {
-  color: #92400e;
-}
-
-.goldTheme :global(.primeTagline) {
-  color: #92400e;
-}
-
-.goldTheme :global(.caseCard) {
-  border-color: rgba(245, 158, 11, 0.14);
-  background: rgba(255, 250, 235, 0.98);
-}
-
-.goldTheme :global(.caseCard:hover) {
-  border-color: rgba(245, 158, 11, 0.3);
-  box-shadow: 0 20px 45px rgba(165, 115, 15, 0.18);
-}
-
-.goldTheme :global(.caseResult) {
-  color: #b45309;
-}
-
-.goldTheme :global(.caseTag) {
-  color: #92400e;
+  --accent-rgb: 245, 158, 11;
+  --accent2-rgb: 217, 119, 6;
+  --accent-bright-rgb: 251, 191, 36;
+  --accent-mid-rgb: 180, 83, 9;
 }
 
 .heroLogoWrapper {
@@ -251,7 +152,7 @@
 }
 
 .caseCard {
-  border: 1px solid rgba(0, 136, 170, 0.12);
+  border: 1px solid rgba(var(--accent-mid-rgb, 0, 136, 170), 0.12);
   border-radius: 12px;
   padding: 2rem;
   background: var(--card);
@@ -259,51 +160,7 @@
 }
 
 .caseCard:hover {
-  border-color: rgba(0, 180, 216, 0.35);
-  transform: translateY(-4px);
-}
-
-.caseTop {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.caseTag {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #000000;
-  font-weight: 700;
-}
-
-.caseResult {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--teal-bright);
-  letter-spacing: 0.03em;
-}
-
-/* Case Studies */
-.caseGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.caseCard {
-  border: 1px solid rgba(0, 136, 170, 0.12);
-  border-radius: 4px;
-  padding: 2rem;
-  background: var(--card);
-  transition: all 0.3s;
-}
-
-.caseCard:hover {
-  border-color: rgba(0, 180, 216, 0.35);
+  border-color: rgba(var(--accent-rgb, 14, 165, 233), 0.35);
   transform: translateY(-4px);
 }
 

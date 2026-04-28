@@ -77,6 +77,11 @@ export default function BusinessPage() {
     const [activeCeoIndex, setActiveCeoIndex] = useState(0);
 
     useEffect(() => {
+        document.body.classList.add('theme-ves-prime');
+        return () => document.body.classList.remove('theme-ves-prime');
+    }, []);
+
+    useEffect(() => {
         const interval = setInterval(() => {
             setActiveCeoIndex((prev) => (prev + 1) % ceoImages.length);
         }, 4000);
